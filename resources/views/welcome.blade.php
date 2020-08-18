@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Hil Alert
+                    Hil Alert backend
                 </div>
             </div>
         </div>
