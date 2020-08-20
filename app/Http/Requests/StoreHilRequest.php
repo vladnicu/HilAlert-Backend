@@ -24,14 +24,9 @@ class StoreHilRequest extends FormRequest
     public function rules()
     {
         return [
-            'date' => 'required|date',
+            
             'labcarname' => 'required',
-            'machinename' => 'required',
-            'osversion' => 'required',
-            'projectname' => 'required',
-            'selectedServers' => 'required',
-            'labcarType' => 'required',
-            'autorun' => 'required|boolean',
+            
         ];
 
     }

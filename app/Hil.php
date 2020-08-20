@@ -1,25 +1,26 @@
 <?php
 
 namespace App;
-
+use App\hilEntrys;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Traits\Orderable;
 class Hil extends Model
 {
     
+    use Orderable;
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'date',
-        'labcarname',
-        'machinename',
-        'osversion',
-        'projectname',
-        'selectedServers',
-        'labcarType',
-        'autorun',
+        'labcarname'
     ];
+
+
+
+
+    public function hilEntrys(){
+        return $this->hasMany(HilEntry::class);
+    }
 }

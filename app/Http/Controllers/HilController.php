@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Hil;
+use App\HilEntry;
 use App\Http\Requests\StoreHilRequest;
 use App\Http\Requests\UpdateHilRequest;
 use App\Http\Resources\HilResource;
@@ -46,18 +47,26 @@ class HilController extends Controller
         $hil = new Hil;
        
         // $hil->date = Carbon::parse($request->date);
-        $hil->date = $request->date;
+        
         $hil->labcarname = $request->labcarname;
-        $hil->machinename = $request->machinename;
-        $hil->osversion = $request->osversion;
-        $hil->projectname = $request->projectname;
-        $hil->selectedServers = $request->selectedServers;
-        $hil->labcarType = $request->labcarType;
-        $hil->autorun = $request->autorun;
+       // $hil->hilEntrys()->associate($request->hilEntrys());
+
+        $hilEntry = new HilEntry;
+
+        $hilEntry->date = $request->date;
+        $hilEntry->machinename = $request->machinename;
+        $hilEntry->osversion = $request->osversion;
+        $hilEntry->projectname = $request->projectname;
+        $hilEntry->selectedServers = $request->selectedServers;
+        $hilEntry->labcarType = $request->labcarType;
+        $hilEntry->autorun = $request->autorun;
+
+        $hilEntry->hil()->associate($hil);
 
         $hil->save();
+        $hil->hilEntrys()->save($hilEntry);
         
-        event(new NewHil($hil));
+        //event(new NewHil($hil));
         //return new HilResource($hil);
     }
 
