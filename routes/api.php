@@ -21,4 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => '/hils'], function() {
     Route::get('/', 'HilController@index');
     Route::post('/', 'HilController@store');
+    Route::delete('/{hil}', 'HilController@destroy');
+    Route::patch('/{hil}', 'HilController@update');
+
 });
