@@ -66,6 +66,8 @@ class HilController extends Controller
         $hil->save();
         $hil->hilEntrys()->save($hilEntry);
         
+       
+
         //event(new NewHil($hil));
         //return new HilResource($hil);
     }
