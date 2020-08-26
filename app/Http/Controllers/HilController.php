@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NewHil;
 use App\Hil;
-use App\HilEntry;
 use App\Http\Requests\StoreHilRequest;
 use App\Http\Requests\UpdateHilRequest;
 use App\Http\Resources\HilResource;
-use Carbon\Carbon;
+
 use Illuminate\Http\Request;
-use App\Events\NewHil;
+
 class HilController extends Controller
 {
     public function index() {
@@ -43,18 +43,13 @@ class HilController extends Controller
     }
     
     public function store(StoreHilRequest $request) {
-
         $hil = new Hil;
-       
-       
         $hil->labcarname = $request->labcarname;
-       
         $hil->save();
-       
-        
-        return $hil;
 
-        
+        event(new NewHil($hil));
+       
+        return $hil;
     }
 
 }

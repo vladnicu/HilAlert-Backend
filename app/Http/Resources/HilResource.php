@@ -17,6 +17,7 @@ class HilResource extends JsonResource
         return [
             'id' => $this->id,
             'labcarname' => $this->labcarname,
+            'firsthilentry' => $this->firstHilEntry()
         ];
     }
 }

@@ -26,10 +26,8 @@ Route::group(['prefix' => '/hils'], function() {
 
     
     Route::group(['prefix' => '/{hil}/hilentries'], function() {
-        
         Route::post('/', 'HilEntryController@store');
-        Route::get('/', 'HilController@index');
-    
+        Route::get('/', 'HilEntryController@index');
     });
 
 });

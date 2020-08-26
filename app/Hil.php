@@ -1,7 +1,6 @@
 <?php
 
 namespace App;
-use App\hilEntrys;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\Orderable;
 class Hil extends Model
@@ -17,10 +16,11 @@ class Hil extends Model
         'labcarname'
     ];
 
-
-
-
     public function hilentries(){
         return $this->hasMany(HilEntry::class);
+    }
+
+    public function firstHilEntry() {
+        return $this->hilentries()->first();
     }
 }

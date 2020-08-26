@@ -20,16 +20,9 @@ class HilEntryController extends Controller
         $hilEntry->labcarType = $request->labcarType;
         $hilEntry->autorun = $request->autorun;
         
-        
         $hil->hilentries()->save($hilEntry);
        
-        //$hil->save();
-       // $hil->hilEntrys()->save($hilEntry);
-        
         return $hilEntry;
-
-        //event(new NewHil($hil));
-        //return new HilResource($hil);
     }
 
     public function index() {

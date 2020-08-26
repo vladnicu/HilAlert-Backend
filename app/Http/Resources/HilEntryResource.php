@@ -14,14 +14,14 @@ class HilEntryResource extends JsonResource
      */
     public function toArray($request)
     {
-        return return [
+        return [
             'date' => $this->date,
-            'machinename' => $this->string,
-            'osversion' => $this->string,
-            'projectname' => $this->string,
-            'selectedServers' => $this->string,
-            'labcarType' => $this->string,
-            'autorun' => $this->boolean,
+            'machinename' => $this->machinename,
+            'osversion' => $this->osversion,
+            'projectname' => $this->projectname,
+            'selectedServers' => $this->selectedServers,
+            'labcarType' => $this->labcarType,
+            'autorun' => $this->autorun,
         ];
     }
 }
