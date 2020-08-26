@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreHilEntryRequest;
 use Illuminate\Http\Request;
 use App\Http\Resources\HilEntryResource;
+use App\Http\Resources\HilResource;
 use App\Hil;
 use App\HilEntry;
 class HilEntryController extends Controller
@@ -25,8 +26,8 @@ class HilEntryController extends Controller
         return $hilEntry;
     }
 
-    public function index() {
-        
-        return HilEntryResource::collection(HilEntry::all());
+    public function index(Hil $hil) {
+        return HilEntryResource::collection(HilEntry::where("hil_id", "=", $hil->id)->get());
     }
+
 }
