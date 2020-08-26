@@ -20,7 +20,7 @@ class Hil extends Model
 
 
 
-    public function hilEntrys(){
+    public function hilentries(){
         return $this->hasMany(HilEntry::class);
     }
 }

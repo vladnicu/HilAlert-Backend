@@ -46,30 +46,15 @@ class HilController extends Controller
 
         $hil = new Hil;
        
-        // $hil->date = Carbon::parse($request->date);
-        
-        $hil->labcarname = $request->labcarname;
-       // $hil->hilEntrys()->associate($request->hilEntrys());
-
-        $hilEntry = new HilEntry;
-
-        $hilEntry->date = $request->date;
-        $hilEntry->machinename = $request->machinename;
-        $hilEntry->osversion = $request->osversion;
-        $hilEntry->projectname = $request->projectname;
-        $hilEntry->selectedServers = $request->selectedServers;
-        $hilEntry->labcarType = $request->labcarType;
-        $hilEntry->autorun = $request->autorun;
-
-        $hilEntry->hil()->associate($hil);
-
-        $hil->save();
-        $hil->hilEntrys()->save($hilEntry);
-        
        
+        $hil->labcarname = $request->labcarname;
+       
+        $hil->save();
+       
+        
+        return $hil;
 
-        //event(new NewHil($hil));
-        //return new HilResource($hil);
+        
     }
 
 }
