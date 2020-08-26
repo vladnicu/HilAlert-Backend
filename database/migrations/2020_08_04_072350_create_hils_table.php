@@ -15,14 +15,8 @@ class CreateHilsTable extends Migration
     {
         Schema::create('hils', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('date');
+            
             $table->string('labcarname');
-            $table->string('machinename');
-            $table->string('osversion');
-            $table->string('projectname');
-            $table->string('selectedServers');
-            $table->string('labcarType');
-            $table->boolean('autorun');
             $table->timestamps();
         });
     }

@@ -24,4 +24,10 @@ Route::group(['prefix' => '/hils'], function() {
     Route::delete('/{hil}', 'HilController@destroy');
     Route::patch('/{hil}', 'HilController@update');
 
+    
+    Route::group(['prefix' => '/{hil}/hilentries'], function() {
+        Route::post('/', 'HilEntryController@store');
+        Route::get('/', 'HilEntryController@index');
+    });
+
 });

@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NewHil;
 use App\Hil;
 use App\Http\Requests\StoreHilRequest;
 use App\Http\Requests\UpdateHilRequest;
 use App\Http\Resources\HilResource;
-use Carbon\Carbon;
+
 use Illuminate\Http\Request;
-use App\Events\NewHil;
+
 class HilController extends Controller
 {
     public function index() {
@@ -42,23 +43,13 @@ class HilController extends Controller
     }
     
     public function store(StoreHilRequest $request) {
-
         $hil = new Hil;
-       
-        // $hil->date = Carbon::parse($request->date);
-        $hil->date = $request->date;
         $hil->labcarname = $request->labcarname;
-        $hil->machinename = $request->machinename;
-        $hil->osversion = $request->osversion;
-        $hil->projectname = $request->projectname;
-        $hil->selectedServers = $request->selectedServers;
-        $hil->labcarType = $request->labcarType;
-        $hil->autorun = $request->autorun;
-
         $hil->save();
-        
+
         event(new NewHil($hil));
-        //return new HilResource($hil);
+       
+        return $hil;
     }
 
 }

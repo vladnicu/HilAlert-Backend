@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreHilRequest extends FormRequest
+class StoreHilEntryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,13 @@ class StoreHilRequest extends FormRequest
     public function rules()
     {
         return [
-            
-            'labcarname' => 'required',
-            
+            'date' => 'date',
+            'machinename' => 'string',
+            'osversion' => 'string',
+            'projectname' => 'string',
+            'selectedServers' => 'string',
+            'labcarType' => 'string',
+            'autorun' => 'boolean',
         ];
-
     }
 }
