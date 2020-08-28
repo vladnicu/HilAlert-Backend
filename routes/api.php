@@ -18,6 +18,14 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+
+Route::group([
+        'middleware' => 'api'], 
+        function() {
+    
+    Route::post('login', 'LoginController@login');
+
+});
 Route::group(['prefix' => '/hils'], function() {
     Route::get('/', 'HilController@index');
     Route::post('/', 'HilController@store');
