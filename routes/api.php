@@ -24,9 +24,15 @@ Route::group([
         function() {
     
     Route::post('login', 'LoginController@login');
+    Route::post('username', 'UserController@update');
 
 });
+
+
 Route::group(['prefix' => '/hils'], function() {
+
+    
+
     Route::get('/', 'HilController@index');
     Route::post('/', 'HilController@store');
     Route::delete('/{hil}', 'HilController@destroy');

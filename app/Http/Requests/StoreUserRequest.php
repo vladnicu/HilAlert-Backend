@@ -25,6 +25,7 @@ class StoreUserRequest extends FormRequest
     {
         return [
             'username' => 'string'
+            
         ];
     }
 }

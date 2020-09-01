@@ -12,6 +12,8 @@ class LoginController extends Controller
 {
     public function login(StoreUserRequest $request){
         
+
+       
         $user = new User;
 
         $user->username =  $request->username;
