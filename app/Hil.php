@@ -24,6 +24,7 @@ class Hil extends Model
     public function firstHilEntry() {
         return $this->hilentries()->first();
     }
+    
     public function users(){
         return $this->belongsToMany(User::class);
     }

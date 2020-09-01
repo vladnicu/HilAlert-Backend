@@ -19,4 +19,8 @@ class User extends Authenticatable
         'username',
     ];
 
+    public function hils(){
+        return $this->belongsToMany(Hil::class);
+    }
+
 }

@@ -17,7 +17,6 @@ class CreateHilUserTable extends Migration
             $table->id();
             $table->integer('hil_id')->unsigned;
             $table->integer('user_id')->unsigned;
-            $table->timestamps();
         });
     }
 
