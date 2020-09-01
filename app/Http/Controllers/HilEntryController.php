@@ -20,7 +20,14 @@ class HilEntryController extends Controller
         $hilEntry->labcarType = $request->labcarType;
         $hilEntry->autorun = $request->autorun;
         
+        
         $hil->hilentries()->save($hilEntry);
+
+        // get penultimul entry si il compari cu ultimul
+        // toti useri->properties
+        // trigger event notification
+
+    
        
         return $hilEntry;
     }

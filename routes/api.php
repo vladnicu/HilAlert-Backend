@@ -20,7 +20,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('login', 'UserController@login');
-Route::patch('/users/{user}', 'UserController@update');
+
+Route::group(['prefix' => '/users'], function() {
+    Route::get('/{user}', 'UserController@show');
+    Route::patch('/{user}', 'UserController@update');
+});
+
 
 Route::group(['prefix' => '/hils'], function() {
 
