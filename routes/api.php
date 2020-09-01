@@ -19,15 +19,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::group([
-        'middleware' => 'api'], 
-        function() {
-    
-    Route::post('login', 'LoginController@login');
-    Route::post('username', 'UserController@update');
-
-});
-
+Route::post('login', 'LoginController@login');
 
 Route::group(['prefix' => '/hils'], function() {
 

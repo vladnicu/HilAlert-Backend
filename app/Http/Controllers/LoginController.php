@@ -1,24 +1,26 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Requests\StoreUserRequest;
 use Illuminate\Http\Request;
 
 use App\User;
 
-
-
 class LoginController extends Controller
 {
-    public function login(StoreUserRequest $request){
-        
+    public function login(StoreUserRequest $request)
+    {
 
-       
-        $user = new User;
+        $user = User::where('username', $request->username)->first();
+        if (!$user) {
+            $user = new User;
 
-        $user->username =  $request->username;
+            $user->username =  $request->username;
 
-        $user->save();
-       
+            $user->save();
+        }
+
+        return $user;
     }
 }
