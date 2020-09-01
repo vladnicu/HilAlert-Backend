@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use App\Hil;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -18,5 +18,9 @@ class User extends Authenticatable
     protected $fillable = [
         'username',
     ];
+
+    public function hils(){
+        return $this->belongsToMany(Hil::class);
+    }
 
 }

@@ -3,6 +3,7 @@
 namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\Orderable;
+use App\User;
 class Hil extends Model
 {
     
@@ -23,4 +24,9 @@ class Hil extends Model
     public function firstHilEntry() {
         return $this->hilentries()->first();
     }
+    
+    public function users(){
+        return $this->belongsToMany(User::class);
+    }
 }
+

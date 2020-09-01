@@ -19,9 +19,11 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::post('login', 'LoginController@login');
+Route::post('login', 'UserController@login');
+Route::patch('/users/{user}', 'UserController@update');
 
 Route::group(['prefix' => '/hils'], function() {
+
     Route::get('/', 'HilController@index');
     Route::post('/', 'HilController@store');
     Route::delete('/{hil}', 'HilController@destroy');

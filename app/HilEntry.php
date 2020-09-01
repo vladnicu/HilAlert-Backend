@@ -16,6 +16,7 @@ class HilEntry extends Model
         'labcarType',
         'autorun'
     ];
+    
     public function hil(){
         return $this->belongsTo(Hil::class);
     }
