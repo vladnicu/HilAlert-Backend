@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+
+Route::post('login', 'LoginController@login');
+
 Route::group(['prefix' => '/hils'], function() {
     Route::get('/', 'HilController@index');
     Route::post('/', 'HilController@store');
