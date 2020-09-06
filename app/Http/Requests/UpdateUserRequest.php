@@ -24,7 +24,8 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'hils' => 'array'
+            'hils' => 'array',
+            'properties' => 'array'
         ];
     }
 }
