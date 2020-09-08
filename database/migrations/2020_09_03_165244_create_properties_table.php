@@ -20,10 +20,13 @@ class CreatePropertiesTable extends Migration
         });
         DB::table('properties')->insert(
             array(
-                
                 [
                     
-                    'name' => 'labcarname',
+                    'name' => 'date',
+                ],
+                [
+                    
+                    'name' => 'machinename',
                 ],
                 [
                     

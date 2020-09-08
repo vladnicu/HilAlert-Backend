@@ -21,23 +21,15 @@ class HilEntry extends Model
         return $this->belongsTo(Hil::class);
     }
 
-    public  function compare($obj1)
+    public  function compare($obj1, $propertiesName)
     {
         
-        if ($obj1->date != $this->date)
-        return 0;
-        if ($obj1->machinename != $this->machinename)
-        return 0;
-        if ($obj1->osversion != $this->osversion)
-        return 0;
-        if ($obj1->projectname != $this->projectname)
-        return 0;
-        if ($obj1->selectedServers != $this->selectedServers)
-        return 0;
-        if ($obj1->labcarType != $this->labcarType)
-        return 0;
-        if ($obj1->autorun != $this->autorun)
-        return 0;
-    return 1;
+        $propertiesName->each(function ($property) {
+
+            dump($property);
+           
+         });
+        
+         return 1;
     }
 }
