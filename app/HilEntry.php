@@ -21,15 +21,5 @@ class HilEntry extends Model
         return $this->belongsTo(Hil::class);
     }
 
-    public  function compare($obj1, $propertiesName)
-    {
-        
-        $propertiesName->each(function ($property) {
-
-            dump($property);
-           
-         });
-        
-         return 1;
-    }
+    
 }
