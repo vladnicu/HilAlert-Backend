@@ -22,8 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', 'UserController@login');
 
 Route::group(['prefix' => '/users'], function() {
+    
     Route::get('/{user}', 'UserController@show');
-    Route::patch('/{user}', 'UserController@update');
+    Route::patch('/{username}', 'UserController@update');
 });
 
 
@@ -44,5 +45,5 @@ Route::group(['prefix' => '/hils'], function() {
 Route::group(['prefix' => '/properties'], function() {
 
     Route::get('/', 'PropertyController@show');
-    Route::patch('/{user}', 'PropertyController@update');
+    Route::patch('/{username}', 'PropertyController@update');
 });

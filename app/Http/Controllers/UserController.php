@@ -26,7 +26,9 @@ class UserController extends Controller
         return new UserResource($user);
     }
 
-    public function update(UpdateUserRequest $request, User $user){
+    public function update(UpdateUserRequest $request, $username){
+        
+        $user = User::where('username', $username)->first();
         
         $user->hils()->sync($request->hils);
         
@@ -37,4 +39,5 @@ class UserController extends Controller
     public function show(User $user) {
         return new UserResource($user);
     }
+    
 }

@@ -17,6 +17,7 @@ class PropertyResource extends JsonResource
         return [
             
             'name' => $this->name,
+            'id' => $this->id,
             
         ];
     }

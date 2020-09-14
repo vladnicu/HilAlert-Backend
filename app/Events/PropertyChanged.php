@@ -32,11 +32,11 @@ class PropertyChanged implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('general');
+        return new Channel($this->message);
     }
 
     public function broadcastAs()
     {
-        return 'new-hil-event';
+        return 'property-changed';
     }
 }

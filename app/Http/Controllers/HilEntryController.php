@@ -43,10 +43,10 @@ class HilEntryController extends Controller
 
            $propertiesName = $properties->pluck('name');
 
-           $propertiesName->each(function ($property) use (&$last,&$secondLast,&$hil) {
+           $propertiesName->each(function ($property) use (&$last,&$secondLast,&$hil,&$user) {
               
                if($last->$property!=$secondLast->$property)
-                    event(new PropertyChanged($hil));
+                    event(new PropertyChanged($user->username));
                     
            });
        });
