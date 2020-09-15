@@ -29,6 +29,7 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user){
         
         $user->hils()->sync($request->hils);
+        
 
         return new UserResource($user);
     }

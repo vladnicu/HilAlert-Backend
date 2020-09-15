@@ -20,4 +20,6 @@ class HilEntry extends Model
     public function hil(){
         return $this->belongsTo(Hil::class);
     }
+
+    
 }

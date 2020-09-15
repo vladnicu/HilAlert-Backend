@@ -16,8 +16,40 @@ class CreatePropertiesTable extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->timestamps();
+            
         });
+        DB::table('properties')->insert(
+            array(
+                [
+                    
+                    'name' => 'date',
+                ],
+                [
+                    
+                    'name' => 'machinename',
+                ],
+                [
+                    
+                    'name' => 'osversion',
+                ],
+                [
+                    
+                    'name' => 'projectname',
+                ],
+                [
+                    
+                    'name' => 'selectedServers',
+                ],
+                [
+                    
+                    'name' => 'labcarType',
+                ],
+                [
+                    
+                    'name' => 'autorun',
+                ],
+            )
+        );
     }
 
     /**

@@ -41,3 +41,8 @@ Route::group(['prefix' => '/hils'], function() {
     });
 
 });
+Route::group(['prefix' => '/properties'], function() {
+
+    Route::get('/', 'PropertyController@show');
+    Route::patch('/{user}', 'PropertyController@update');
+});
