@@ -23,9 +23,6 @@ class HilController extends Controller
     }
 
     public function update(UpdateHilRequest $request, Hil $hil){
-        
-        // $hil->date = Carbon::parse($request->date);
-
         $hil->date = $request->get('date', $hil->date);
         $hil->labcarname = $request->get('labcarname', $hil->labcarname);
         $hil->machinename = $request->get('machinename', $hil->machinename);
@@ -36,9 +33,8 @@ class HilController extends Controller
         $hil->autorun = $request->get('autorun', $hil->autorun);
 
         $hil->save();
-
+        
         $hil->date = $request->get('date', $hil->date);
-
         return $hil;
     }
     
@@ -46,9 +42,7 @@ class HilController extends Controller
         $hil = new Hil;
         $hil->labcarname = $request->labcarname;
         $hil->save();
-
         event(new NewHil($hil));
-       
         return $hil;
     }
 

@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 use App\Hil;
 use Illuminate\Console\Command;
-use App\Events\NewHil;
+use App\Events\NoDataRetrieved;
 
 class check extends Command
 {
@@ -46,7 +46,7 @@ class check extends Command
             $minutes = (time() - strtotime($last->date) ) / 60;
 
             if($minutes>2)
-                event(new NewHil('asdasds'));
+                event(new NoDataRetrieved('asdasds'));
            });
       
         return 0;

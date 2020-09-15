@@ -10,7 +10,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class PropertyChanged implements ShouldBroadcast
+class NoDataRetrieved implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -19,12 +19,9 @@ class PropertyChanged implements ShouldBroadcast
      *
      * @return void
      */
-    public $username;
-    public $properties=array();
-    public function __construct($username,$properties)
+    public function __construct()
     {
-        $this->username=$username;
-        $this->properties=$properties;
+        //
     }
 
     /**
@@ -34,11 +31,6 @@ class PropertyChanged implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel($this->username);
-    }
-
-    public function broadcastAs()
-    {
-        return 'property-changed';
+        return new PrivateChannel('general');
     }
 }
