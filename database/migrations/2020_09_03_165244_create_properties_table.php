@@ -23,30 +23,37 @@ class CreatePropertiesTable extends Migration
                 [
                     
                     'name' => 'date',
+                    'id' => '1',
                 ],
                 [
                     
                     'name' => 'machinename',
+                    'id' => '2',
                 ],
                 [
                     
                     'name' => 'osversion',
+                    'id' => '3',
                 ],
                 [
                     
                     'name' => 'projectname',
+                    'id' => '4',
                 ],
                 [
                     
                     'name' => 'selectedServers',
+                    'id' => '5',
                 ],
                 [
                     
                     'name' => 'labcarType',
+                    'id' => '6',
                 ],
                 [
                     
                     'name' => 'autorun',
+                    'id' => '7',
                 ],
             )
         );

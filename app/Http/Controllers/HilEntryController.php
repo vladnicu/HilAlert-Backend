@@ -31,32 +31,28 @@ class HilEntryController extends Controller
          
         $last = $hil->hilentries()->orderBy('created_at', 'desc')->first();
 
+        $notificationProperties=array();
         
-        // get penultimul entry si il compari cu ultimul //transition::orderBy('created_at', 'desc')->skip(1)->take(1)->get();
-        // toti useri->properties
-        // trigger event notification
-
-       $users = $hil->users();
-       $users->each(function ($user) use (&$last,&$secondLast,&$hil) {
-
+        $users = $hil->users();
+        $users->each(function ($user) use (&$last,&$secondLast,&$hil,&$notificationProperties) {
+           $ok=false;
            $properties = $user->properties();
-
            $propertiesName = $properties->pluck('name');
-
-           $propertiesName->each(function ($property) use (&$last,&$secondLast,&$hil) {
-              
-               if($last->$property!=$secondLast->$property)
-                    event(new PropertyChanged($hil));
+           $propertiesName->each(function ($property) use (&$last,&$secondLast,&$hil,&$user,&$notificationProperties) {
+               if($last->$property!=$secondLast->$property){
+                    array_push($notificationProperties, $last->$property);
                     
+               }
            });
+           if(!empty($notificationProperties))
+                event(new PropertyChanged($user->username,$notificationProperties));
+           else {
+                $notificationProperties=array();
+           }
        });
-
-      
         return $hilEntry;
     }
-
     public function index() {
-        
         return HilEntryResource::collection(HilEntry::all());
     }
 }

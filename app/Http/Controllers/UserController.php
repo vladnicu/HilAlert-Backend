@@ -17,24 +17,18 @@ class UserController extends Controller
         $user = User::where('username', $request->username)->first();
         if (!$user) {
             $user = new User;
-
             $user->username =  $request->username;
-
             $user->save();
         }
-
         return new UserResource($user);
     }
-
-    public function update(UpdateUserRequest $request, User $user){
-        
+    public function update(UpdateUserRequest $request, $username){
+        $user = User::where('username', $username)->first();
         $user->hils()->sync($request->hils);
-        
-
         return new UserResource($user);
     }
-
     public function show(User $user) {
         return new UserResource($user);
     }
+    
 }

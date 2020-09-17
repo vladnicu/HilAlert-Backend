@@ -14,7 +14,8 @@ class Hil extends Model
      * @var array
      */
     protected $fillable = [
-        'labcarname'
+        'id',
+        'labcarname',
     ];
 
     public function hilentries(){
