@@ -19,10 +19,13 @@ class NoDataRetrieved implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct()
+
+    public $message;
+    public function __construct($message)
     {
-        //
+        $this->message=$message;
     }
+
 
     /**
      * Get the channels the event should broadcast on.
@@ -32,5 +35,9 @@ class NoDataRetrieved implements ShouldBroadcast
     public function broadcastOn()
     {
         return new PrivateChannel('general');
+    }
+    public function broadcastAs()
+    {
+        return 'no-data-retrieved';
     }
 }

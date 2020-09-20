@@ -46,7 +46,9 @@ class check extends Command
             $minutes = (time() - strtotime($last->date) ) / 60;
 
             if($minutes>2)
+                
                 event(new NoDataRetrieved('asdasds'));
+                
            });
       
         return 0;
