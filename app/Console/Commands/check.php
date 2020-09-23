@@ -39,18 +39,14 @@ class check extends Command
     public function handle()
     {
        $hils=Hil::all();
-       
        $hils->each(function ($hil) {
-
             $last = $hil->hilentries()->orderBy('created_at', 'desc')->first();
+            
             $minutes = (time() - strtotime($last->date) ) / 60;
-
             if($minutes>2)
-                
-                event(new NoDataRetrieved('asdasds'));
-                
+                dump($last->date);
+                event(new NoDataRetrieved($hil->labcarname));
            });
-      
         return 0;
     }
 }

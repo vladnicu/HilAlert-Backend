@@ -15,6 +15,7 @@ use App\User;
 class HilEntryController extends Controller
 {
     public function store(StoreHilEntryRequest $request, Hil $hil) {
+        
         $hilEntry = new HilEntry;
 
         $hilEntry->date = $request->date;
@@ -32,7 +33,7 @@ class HilEntryController extends Controller
         $last = $hil->hilentries()->orderBy('created_at', 'desc')->first();
 
         $notificationProperties=array();
-        
+       
         $users = $hil->users();
         $users->each(function ($user) use (&$last,&$secondLast,&$hil,&$notificationProperties) {
            $ok=false;
@@ -40,12 +41,13 @@ class HilEntryController extends Controller
            $propertiesName = $properties->pluck('name');
            $propertiesName->each(function ($property) use (&$last,&$secondLast,&$hil,&$user,&$notificationProperties) {
                if($last->$property!=$secondLast->$property){
-                    array_push($notificationProperties, $last->$property);
-                    
+                   // array_push($notificationProperties, $last->$property);
+                   array_push($notificationProperties, $property);
                }
            });
-           if(!empty($notificationProperties))
-                event(new PropertyChanged($user->username,$notificationProperties));
+           if(!empty($notificationProperties)){
+                event(new PropertyChanged($user->username,$notificationProperties,$hil->labcarname));
+            }
            else {
                 $notificationProperties=array();
            }
