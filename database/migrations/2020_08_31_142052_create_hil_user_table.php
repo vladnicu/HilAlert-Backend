@@ -15,8 +15,8 @@ class CreateHilUserTable extends Migration
     {
         Schema::create('hil_user', function (Blueprint $table) {
             $table->id();
-            $table->integer('hil_id')->unsigned;
-            $table->integer('user_id')->unsigned;
+            $table->integer('hil_id')->unsigned();
+            $table->integer('user_id')->unsigned();
         });
     }
 

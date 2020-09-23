@@ -24,9 +24,7 @@ class StoreHilRequest extends FormRequest
     public function rules()
     {
         return [
-            
             'labcarname' => 'required',
-            
         ];
 
     }
