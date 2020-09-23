@@ -23,27 +23,22 @@ class HilController extends Controller
     }
 
     public function update(UpdateHilRequest $request, Hil $hil){
-        $hil->date = $request->get('date', $hil->date);
         $hil->labcarname = $request->get('labcarname', $hil->labcarname);
-        $hil->machinename = $request->get('machinename', $hil->machinename);
-        $hil->osversion = $request->get('osversion', $hil->osversion);
-        $hil->projectname = $request->get('projectname', $hil->projectname);
-        $hil->selectedServers = $request->get('selectedServers', $hil->selectedServers);
-        $hil->labcarType = $request->get('labcarType', $hil->labcarType);
-        $hil->autorun = $request->get('autorun', $hil->autorun);
 
         $hil->save();
         
         $hil->date = $request->get('date', $hil->date);
-        return $hil;
+        return new HilResource($hil);
     }
     
     public function store(StoreHilRequest $request) {
         $hil = new Hil;
         $hil->labcarname = $request->labcarname;
         $hil->save();
+
         event(new NewHil($hil));
-        return $hil;
+
+        return new HilResource($hil);
     }
 
 }

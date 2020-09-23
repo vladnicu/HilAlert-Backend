@@ -24,7 +24,6 @@ class UpdateHilRequest extends FormRequest
     public function rules()
     {
         return [
-            'date' => 'date',
             'labcarname' => 'string',
             'machinename' => 'string',
             'osversion' => 'string',
