@@ -10,7 +10,6 @@ use App\Http\Resources\PropertyResource;
 class PropertyController extends Controller
 {
     public function show() {
-       
         return PropertyResource::collection(Property::all());
     }
 

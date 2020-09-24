@@ -24,7 +24,6 @@ class StoreHilEntryRequest extends FormRequest
     public function rules()
     {
         return [
-            'date' => 'date',
             'machinename' => 'string',
             'osversion' => 'string',
             'projectname' => 'string',

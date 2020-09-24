@@ -15,9 +15,8 @@ class CreatePropertyUserTable extends Migration
     {
         Schema::create('property_user', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('property_id')->unsigned;
-            $table->integer('user_id')->unsigned;
-            $table->timestamps();
+            $table->integer('property_id')->unsigned();
+            $table->integer('user_id')->unsigned();
         });
     }
 

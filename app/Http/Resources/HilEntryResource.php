@@ -15,7 +15,7 @@ class HilEntryResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'date' => $this->date,
+            'date' => $this->created_at,
             'machinename' => $this->machinename,
             'osversion' => $this->osversion,
             'projectname' => $this->projectname,

@@ -18,7 +18,6 @@ class HilEntryController extends Controller
         
         $hilEntry = new HilEntry;
 
-        $hilEntry->date = $request->date;
         $hilEntry->machinename = $request->machinename;
         $hilEntry->osversion = $request->osversion;
         $hilEntry->projectname = $request->projectname;

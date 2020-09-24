@@ -16,7 +16,6 @@ class CreateHilEntriesTable extends Migration
         Schema::create('hil_entries', function (Blueprint $table) {
             $table->id();
             
-            $table->dateTime('date');
             $table->string('machinename');
             $table->string('osversion');
             $table->string('projectname');

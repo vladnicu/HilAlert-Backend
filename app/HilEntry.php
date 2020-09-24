@@ -8,7 +8,6 @@ class HilEntry extends Model
 {
     use Orderable;
     protected $fillable = [
-        'date',
         'machinename',
         'osversion',
         'projectname',
