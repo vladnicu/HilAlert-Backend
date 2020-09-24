@@ -19,10 +19,10 @@ class NewHil implements ShouldBroadcast
      *
      * @return void
      */
-    public $message;
-    public function __construct($message)
+    public $hil;
+    public function __construct($hil)
     {
-        $this->message=$message;
+        $this->hil=$hil;
     }
 
     /**

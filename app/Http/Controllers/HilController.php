@@ -35,10 +35,7 @@ class HilController extends Controller
         $hil = new Hil;
         $hil->labcarname = $request->labcarname;
         $hil->save();
-
-        event(new NewHil($hil));
-
-        return new HilResource($hil);
-    }
-
+      
+        event(new NewHil($hil->labcarname));
+        return $hil;
 }

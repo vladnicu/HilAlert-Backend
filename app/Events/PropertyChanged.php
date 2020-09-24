@@ -21,10 +21,13 @@ class PropertyChanged implements ShouldBroadcast
      */
     public $username;
     public $properties=array();
-    public function __construct($username,$properties)
+    public $hil;
+    public function __construct($username,$properties,$hil)
     {
         $this->username=$username;
         $this->properties=$properties;
+        $this->hil= $hil;
+       
     }
 
     /**
@@ -34,6 +37,7 @@ class PropertyChanged implements ShouldBroadcast
      */
     public function broadcastOn()
     {
+        
         return new Channel($this->username);
     }
 
