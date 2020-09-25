@@ -12,10 +12,4 @@ class PropertyController extends Controller
     public function show() {
         return PropertyResource::collection(Property::all());
     }
-
-    public function update(UpdateUserRequest $request, $username){
-        $user = User::where('username', $username)->first();
-        $user->properties()->sync($request->properties);
-        return new UserResource($user);
-    }
 }

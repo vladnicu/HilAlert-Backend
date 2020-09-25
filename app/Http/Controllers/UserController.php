@@ -22,14 +22,22 @@ class UserController extends Controller
         return new UserResource($user);
     }
 
-    public function update(UpdateUserRequest $request, $username){
+    public function update(UpdateUserRequest $request, $username)
+    {
         $user = User::where('username', $username)->first();
-        $user->hils()->sync($request->hils);
+        if ($request->hils) {
+            $user->hils()->sync($request->hils);
+        }
+
+        if ($request->properties) {
+            $user->properties()->sync($request->properties);
+        }
+
         return new UserResource($user);
     }
 
-    public function show(User $user) {
+    public function show(User $user)
+    {
         return new UserResource($user);
     }
-    
 }
